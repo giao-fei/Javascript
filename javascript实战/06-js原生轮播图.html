@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js轮播图</title>
+    <style type="text/css">
+      .wrap{
+          width: 700px;
+          height: 400px;
+          position: relative;
+          margin: 100px auto;
+      }
+      .list{
+          width: 700px;
+          height: 400px;
+          list-style: none;
+          position: relative;
+          padding-left: 0px;
+       }
+       .item{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          color: white;
+          font-size: 50px;
+          opacity: 0;
+          transition: all .5s;
+       }
+       .item:nth-child(1){
+           background-color: black;
+       }
+       .item:nth-child(2){
+           background-color: red;
+       }
+       .item:nth-child(3){
+           background-color: yellow;
+       }
+       .item:nth-child(4){
+           background-color: gold;
+       }
+       .item:nth-child(5){
+           background-color: pink;
+       }
+       /* 左右两个按钮 */
+       .btn{
+           width: 50px;
+           height: 100px;
+           position: absolute;
+           top: 150px;
+           z-index: 100;
+       }
+       #goPre{
+           left: 0px;
+       }
+       #goNext{
+           right: 0px;
+       }
+       .item.active{
+           opacity: 1;
+           z-index: 10;
+       }
+       .pointList{
+           padding-left: 0px;
+           list-style: none;
+           position: absolute;
+           right: 20px;
+           bottom: 10px;
+           z-index: 1000;
+       }
+       .point{
+           width: 8px;
+           height: 8px;
+           background-color: rgba(0,0,0,0.4);
+           border-radius: 100%;
+           float: left;
+           margin-right: 14px;
+           border-style: solid;
+           border-width: 2px;
+           border-color: rgba(255,255,255,0.6);
+
+           cursor: pointer;
+       }
+       .point.active{
+           background-color: rgba(255,255,255,0.8);
+       }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+         <ul class="list">
+             <li class="item active">0</li>
+             <li class="item">1</li>
+             <li class="item">2</li>
+             <li class="item">3</li>
+             <li class="item">4</li>
+             <li class="item">5</li>
+         </ul>
+         <ul class="pointList">
+             <li class="point active" data-index = '0'></li>
+             <li class="point" data-index = '1'></li>
+             <li class="point" data-index = '2'></li>
+             <li class="point" data-index = '3'></li>
+             <li class="point" data-index = '4'></li>
+        </ul>
+         <button type="button" class="btn" id="goPre"><</button>
+         <button type="button" class="btn" id="goNext">></button>
+    </div>
+<script type="text/javascript">
+    var items = document.getElementsByClassName('item'); // 图片
+    var points = document.getElementsByClassName('point'); // 点
+    var goPreBtn = document.getElementById('goPre');
+    var goNextBtn = document.getElementById('goNext');
+
+    var index = 0; // index表示第几张图片在展示 ---》第index张图片有active这个类名
+    
+    var time = 0; // 定时器图片跳转参数
+
+    var clearActive = function(){
+        for (var i = 0; i < items.length; i++){
+            items[i].className = 'item';
+        }
+        for (var i = 0; i < points.length; i++){
+            points[i].className = 'point';
+        }
+    }
+
+    var goIndex = function(){
+        clearActive();
+        console.log(index);
+        points[index].className = 'point active';
+        items[index].className = 'item active';
+    }
+    
+    var goNext = function(){
+        if(index < 4){
+            index++;
+        }else{
+            index = 0;
+        }
+        goIndex();
+    }
+    
+    var goPre = function(){
+        if(index == 0){
+            index = 4;
+        }else{
+            index --;
+        }
+        goIndex();
+    }
+
+    goNextBtn.addEventListener('click', function(){
+        goNext();
+    }) 
+    
+    goPreBtn.addEventListener('click', function(){
+        goPre();
+    })
+    
+    for (var i = 0 ; i < points.length ; i++) {
+        points[i].addEventListener('mouseover', function(){
+             var pointIndex = this.getAttribute('data-index');
+             index = pointIndex;
+             goIndex();
+             time = 0;
+        })
+    }
+    
+    // 2000ms 跳转一次
+    
+    setInterval(function() {
+        time++;
+        if(time == 50){
+            goNext();
+            time = 0;
+        }
+    },100)
+</script>
+</body>
+</html>

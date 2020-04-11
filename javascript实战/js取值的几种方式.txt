@@ -1,0 +1,30 @@
+1、  document.getElementById用法如下：
+          <div id="app"></div>
+          document.getElementbyId("app");           
+2、  document.getElementsByName用法如下：
+          <input name="myInput" type="text" size="20" /><br />
+          <input name="myInput" type="text" size="20" /><br />
+          <input name="myInput" type="text" size="20" /><br />
+          document.getElementsByName("myInput"); // 获取全部的myinput选项
+          document.getElementsByName("myInput")[0]; // 访问第一个input选项
+          document.getElementsByName("myInput")[1]; // 访问第二个input选项
+3、  document.getElementsByTagName的用法如下：
+           同上
+4、  document.querySelector
+           <div id="app"></div>
+           <p>love</p>
+           <p class="lover"></p>
+           document.querySelector("#app");
+           document.querySelector("p")
+           document.querySelector("p.lover")
+5、  document.querySelectorAll
+6、  document.getElementsByClassName
+7、  document.getElementsByTagNameNS
+8、  document.getCSSCanvasContext
+9、  document.getOverrideStyle
+10、document.getSelection
+11、document.queryCommandEnabled
+12、document.queryCommandIndeterm
+13、document.queryCommandState
+14、document.queryCommandSupported
+15、document.queryCommandValue

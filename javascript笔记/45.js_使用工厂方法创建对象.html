@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js_使用工厂方法创建对象</title>
+</head>
+<script>
+	
+	/*
+	 * 创建一个对象
+	 */
+//  var obj = {
+//	  name:"熏悟空",
+//	  age:18,
+//	  gender:"男"，
+//	  sayName:function(){
+//	     alert(this.name);
+//      }
+//	  
+//  };
+//	
+/*
+ * 使用工厂方法创建对象
+ *   通过该方法可以大批量的创建对象
+ */	
+// function createPerson(){
+//	 //创建一个新的对象
+//	 var obj = new Object();
+//	 
+//	 //向对象中添加属性
+//	 obj.name = "熏悟空";
+//	 obj.age = 18;
+//	 obj.gender = "男";
+//	 obj.sayName = function(){
+//		 alert(this.name);
+//	 
+//	 };
+//	 
+//	 //将新的对象返回
+//	 return obj;
+// }
+// 
+// var obj = createPerson();
+// var obj2 = createPerson();
+// var obj3 = createPerson();
+//	
+// console.log(obj);
+// console.log(obj2);
+// console.log(obj3);
+	
+ 	
+ function createPerson(name,age,gender){
+	 //创建一个新的对象
+	 var obj = new Object();
+	 
+	 //向对象中添加属性
+	 obj.name = name;
+	 obj.age = age;
+	 obj.gender = gender;
+	 obj.sayName = function(){
+		 alert(this.name);
+	 
+	 };
+	 
+	 //将新的对象返回
+	 return obj;
+ }
+ 
+ var obj = createPerson("熏悟空",25,"男");
+ var obj2 = createPerson("哪吒",15,"男");
+ var obj3 = createPerson("虾悟净",45,"男");
+ var obj4= createPerson("玉兔精",25,"女");
+	
+ obj.sayName();
+  
+ 
+	
+
+</script>
+<body>
+</body>
+</html>

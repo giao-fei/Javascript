@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>拖拽</title>
+</head>
+<style>
+	#box1{width:200px;height:200px;background-color:yellow;position:absolute;}
+	#box2{width:200px;height:200px;background-color:red;position:absolute;top:100px;left:600px;}
+</style>
+<script type="text/javascript">
+
+	window.onload = function(){
+		/*
+		 * 拖拽box1元素
+		 *  - 拖拽的流程
+		 *     1.当鼠标在拖拽元素上按下时，开始拖拽 onmousedown
+		 *     2.当鼠标移动时被拖拽元素跟随鼠标移动 onmousemove
+		 *     3.当鼠标送开时，被拖拽元素固定在当前位置 onmouseup
+		 *
+		 */
+	
+	//获取box1
+	var box1 = document.getElementById("box1");
+	var box2 = document.getElementById("box2");
+	var img = document.getElementById("img");
+	//开启box1的拖拽
+	drag(box1);
+	//开启box2的拖拽
+	drag(box2);
+	//开启box3的拖拽
+	drag(img);
+}
+	
+/*
+ * 提取一个专门用来设置拖拽的函数 
+ * 参数：开启拖拽的元素
+ */	
+function drag(obj){
+   //为box1绑定一个鼠标按下事件
+   //当鼠标在被拖拽元素上按下时，开始拖拽 onmousedown
+   obj .onmousedown = function(event){
+		//设置box1捕获所有鼠标拖拽事件
+		/*
+		 * setCapture()
+		 *   - 只有IE支持，但是在火狐中调用时不会报错
+		 *       而如果使用chrome调用，会报错
+		 */
+//		if(box1.setCapture){
+//		   box1.setCapture();	
+//		}
+		obj.setCapture && obj.setCapture();
+		
+	    event = event || window.event;
+		//div的偏移量 鼠标.clentX - 元素.offsetLeft
+		//div的偏移量 鼠标.clentY - 元素.offsetTop
+		var ol = event.clientX - obj.offsetLeft;
+		var ot = event.clientY - obj.offsetTop;
+		
+		//为document绑定一个onmousemove事件
+		document.onmousemove = function(event){
+		    event = event || window.event;	
+			//当鼠标移动时被拖拽元素跟随鼠标移动 onmousemove
+			//获取鼠标的坐标
+			var left = event.clientX - ol;
+			var top = event.clientY - ot;
+			
+			//修改box1的位置
+			obj.style.left = left + "px";
+			obj.style.top = top + "px";
+			
+			
+		}
+      
+		  //为元素绑定一个鼠标松开事件
+          document.onmouseup = function(){
+			//当鼠标松开时，被拖拽元素固定在当前位置 onmouseup
+			//取消document的onmousemove事件
+		    document.onmousemove = null;
+		    //取消document的Onmouseup事件
+		    document.onmouseup = null;
+			//当鼠标送开时，取消对事件的捕获
+			obj.releaseCapture && obj.releaseCapture();
+            };
+		  return false;
+	}
+	
+	
+}
+</script>	
+<body>
+	123
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<img src="img/109.jpg" id="img" style="position:absolute;">
+</body>
+
+</html>

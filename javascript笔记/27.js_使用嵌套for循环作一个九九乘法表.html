@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style type="text/css">
+	span{display:inline-block;width:80px;}	
+	
+	
+	
+</style>
+<script>
+	
+	/*使用嵌套for循环做一个九九乘法表*/
+//	for(var i=1; i<=9; i++){
+//		//创建一个内层循环来控制图形的宽度
+//		for(var j=1; j<=i; j++){
+//			document.write("<span>"+j+"*"+i+"="+i*j+"</span>");
+//		}
+//		document.write("<br />");
+//	}
+	  
+	
+	/*打印2-100之间所有的质数*/
+	   
+    
+	
+    //打印2-100之间的数
+	for(var i=2; i<=100; i++){
+		
+	  //创建一个布尔值，用来保存结果，默认i是质数
+	  var flag = true;
+		
+	  //判断i是否是质数
+	  //获取到2-i之间的所有的数
+	  for(var j=2; j<i; j++){
+		  
+		  //判断i是否能被J整除
+		  if(i%j == 0){
+		    //如果进入判断则证明i不是质数，修改flag值为false
+		    flag = false;
+	  }	
+		
+	}
+	
+    //如果是质数，则打印I的值
+	if(flag){
+		document.write(i+"<br />");
+	   }
+	
+	}
+	
+</script>
+<body>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js函数(方法)的封装</title>
+</head>
+<body>
+    <script>
+    // 封装方式一：
+       function one(){
+        for(var i = 0; i < 5; i++){
+         console.log("hello world")
+        }
+       }
+       one()
+    // 封装方式二：(传参)
+       function two(str){
+          for(var i = 0; i < 5; i++){
+              console.log(str)
+          }
+       }
+        two('封装方式二');
+    // 封装方式三：(传参)
+       function three(str, num){
+           for(var i = 0; i < 5; i++){
+               console.log(str, num)
+           }
+       }
+       three('封装方式三', 50)
+    </script>
+
+    <script>
+    // 调用封装好的函数一  
+      document.write('I am fine')
+      one();
+    // 调用封装好的函数二（传参）
+      two('封装方式二');
+    // 调用封装好的函数三（传参） 
+      three('封装方式三', 50)
+    </script>
+</body>
+</html>

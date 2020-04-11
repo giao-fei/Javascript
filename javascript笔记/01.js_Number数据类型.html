@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<script>
+	/* 可以使用一个运算符typeof来检查一个变量的类型
+	   语法：typeof 变量 
+	   例如：var a = 123;
+	        console.log(typeof a);
+	   
+	*/
+  
+	/*在JS中整数的运算基本可以保证精确*/
+	
+	/*
+	 - 在JS中所有的数值都是Number类型，包括整数和浮点数（小数）
+	 - 在JS中可以表示的数字的最大值：Number.MAX_VALUE = 1.797693134862315e+308
+	 - 如果使用Number表示的数字超过了最大值，则会返回一个Infinity则表示正无穷
+	 - -Infinity表示负无穷
+	    Infinity表示正无穷
+		使用typeof检查Infinity也会返回Number
+	 - NaN 是一个特殊的数字，表示Not A Number
+	   使用typeof检查一个NaN也会返回number
+		
+		
+		
+		
+	*/
+    //字符串123
+	var a = 123;
+	a = -Number.MAX_VALUE * Number.MAX_VALUE;
+	a = Infinity;
+    a = "NaN";
+    //数字123
+    var b = "123";
+	
+	console.log(NaN);
+    console.log(typeof a);
+ 
+	console.log(b);
+</script>
+<body>
+</body>
+</html>

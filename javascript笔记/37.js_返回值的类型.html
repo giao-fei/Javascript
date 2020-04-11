@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js_返回值的类型</title>
+</head>
+<script>
+	
+	/*
+	 * 返回值可以是任意的数据类型
+	 *  也可以是一个对象，也可以是一个函数
+	 */
+	function fun(){
+		
+		var obj = {name:"沙和尚"};
+		
+		return obj;
+	//	return {name:"沙子"};
+	}
+	
+	var a = fun();
+	
+    console.log("a = "+a.name);
+	
+	function fun2(){
+		//在函数内部再声明一个函数
+		function fun3(){
+			alert("我是f3");
+		}
+		return fun3;
+	}
+	a = fun2();
+	console.log(a);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+<body>
+</body>
+</html>

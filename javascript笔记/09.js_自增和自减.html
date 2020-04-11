@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js-自增和自减</title>
+</head>
+<script type="text/javascript">
+	
+ /*
+   自增 ++
+     - 通过自增可以使变量再自身的基础上增加1
+     - 对于一个变量自增以后，原变量的值会立即自增1
+	 - 自增分成两种：后++(a++) 和前++(++a)
+	    无论是a++ 还是++a,都会立即使原变量的值自增1，但不同的是a++ 和 ++a的值不同
+       a++的值等于原变量的值（自增前的值）
+	   ++a的值等于原变量新值（自增后的值）
+   自减 ——
+     - 通过自减可以使变量在自身的基础上减1
+     - 自减分成两种：后--(a--)和前--(--a)
+	    不同的是a-- 和 --a的值不同
+		 a-- 是变量的原值（自减前的值）
+         --a 是变量的新值（自减以后的值）
+ 
+ */
+  
+  var a = 1;
+
+	
+  console.log(a++);
+  ++a;
+  
+  
+  console.log(++a);
+
+//  var num = 10;	
+//	
+//  console.log(--num);	
+//  console.log(num--);	
+
+		
+</script>
+
+	
+//自增、自减练习
+<script>
+	var n1 = 10;
+	var n2 = 20;
+	
+	var n = n1++; //n1 = 11 n1++ = 10;
+	
+	console.log('n='+n);//10
+	console.log('n1='+n1);//11
+	
+	
+</script>
+<body>
+</body>
+</html>

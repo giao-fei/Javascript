@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>if语句练习</title>
+</head>
+<script>
+   	
+ /*
+    条件：高：180cm以上； 富：1000万以上；颜：100以上；
+    如果这三个条件同时满足，则弹出结果
+	如果三个条件满足一个也还行
+	如果这三个条件都不满足，则不弹出结果
+ 
+ 
+ */	
+    var height = prompt("请输出你的身高(CM)");//js中的键盘输入	
+	var money = prompt("请输入你的财富(万)");
+	var face = prompt("请输入你的颜值(PX)");
+	
+	
+	if(height > 180 && money > 1000 && face >100){
+		alert("恭喜你");
+	}else if(height > 180 || money > 1000 || face > 100){
+		alert("比上不足，比下有余");
+	}else{
+		alert("赶紧滚蛋");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+<body>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js-条件运算符</title>
+</head>
+<script type="text/javascript">
+	
+  /*
+   * 条件运算符也叫三元运算符(即在JS中求最大最小值)
+   *  语法：
+   *       条件表达式？语句:语句2；
+   *  - 执行的流程：
+   *      条件运算符在执行时，首先对条件表达式进行求值，
+   *           如果该值为true，则执行语句1，并返回执行结果
+   *           如果该值为false，则执行语句2，并返回执行结果
+  
+  
+  
+ 
+  */	
+  
+  //false?alert("语句1"):("语句2")；
+ 
+	var a = 10;
+	var b = 20;
+    var c = 30;
+  
+	//a > b ? alert("a大"):alert("b大");
+	
+	//获取a和b中的最大值
+	var max = a > b ? a : b;
+	//获取a b c 中最大值
+    max = max > c ? max : c;
+	
+    //这种方法不推荐，不方便阅读
+	//var max = a > b ? (a > c ? a : c) : (b > c ? b : c);
+	console.log("max = "+max);//返回值为b
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+<body>
+</body>
+</html>
